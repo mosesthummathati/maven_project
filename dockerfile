@@ -1,11 +1,5 @@
-# Use the official Apache image from the Docker Hub
-FROM httpd:alpine
-
-# Copy the content of the project1 folder to the Apache web directory
-COPY . /usr/local/apache2/htdocs/
-
-# Set the ServerName directive globally to suppress the warning
-RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
-
-# Expose port 80
-EXPOSE 80
+FROM openjdk:11-jre-slim
+WORKDIR /app
+COPY target/maven.example-1.0-SNAPSHOT.war /app/app.war
+EXPOSE 8080
+CMD ["java", "-jar", "app.war"]
