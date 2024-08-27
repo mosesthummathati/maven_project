@@ -7,7 +7,7 @@ WORKDIR /opt/tomcat/webapps/
 COPY target/maven.example-1.0-SNAPSHOT.war .
 
 # Expose the default Tomcat port
-EXPOSE 8000
+EXPOSE 8081
 
 # Run Tomcat
 CMD ["catalina.sh", "run"]
